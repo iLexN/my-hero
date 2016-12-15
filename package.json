@@ -1,0 +1,25 @@
+{
+  "name": "my-hero",
+  "version": "0.0.1",
+  "description": "nw.js features demonstrated in a simple project",
+  "license": "MIT",
+  "author": {
+    "name": "iLexN",
+    "url": "https://github.com/iLexN"
+  },
+  "repository": {
+    "url": "https://github.com/julmot/nw.js-examples.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/julmot/nw.js-examples/issues"
+  },
+  "scripts": {
+    "dev": "nw src/",
+    "prod": "nwbuild --platforms win32,win64 --buildDir dist/ src/"
+  },
+  "devDependencies": {
+    "nw": "^0.18.3",
+    "nw-builder": "^3.1.2"
+  }
+}

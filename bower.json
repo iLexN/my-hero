@@ -1,0 +1,17 @@
+{
+  "name": "MyHero",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "vue": "^2.1.5",
+    "jquery": "^3.1.1",
+    "materialize": "^0.97.8",
+    "lodash": "^4.17.2",
+    "pouchdb": "^6.1.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,25 @@
+html {
+    font-size:20px;
+}
+.chip {
+    font-size:1rem;
+}
+
+.card.horizontal .card-image img {
+    width:5rem;
+}
+.hasbox{
+    margin-bottom:1rem; 
+    background-color:gold;
+    overflow: hidden;
+    padding:0.3rem;
+}
+.noBox{
+    margin-bottom:1rem; 
+    overflow: hidden;
+    padding:0.3rem;
+}
+
+.blur{
+    filter: blur(2px);
+}

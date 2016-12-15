@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MyHero</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bower_components/materialize/dist/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body >
+        <div id="app">
+            <div class="row" class="filterBar">
+                <button class="btn" v-on:click="setFilterTag('Tank', $event)">Tank</button>
+                <button class="btn" v-on:click="setFilterTag('Fighter', $event)">Fighter</button>
+                <button class="btn" v-on:click="setFilterTag('Mage', $event)">Mage</button>
+                <button class="btn" v-on:click="setFilterTag('Assassin', $event)">Assassin</button>
+                <button class="btn" v-on:click="setFilterTag('Support', $event)">Support</button>
+                <button class="btn" v-on:click="setFilterTag('Marksman', $event)">Marksman</button>
+            </div>
+            
+            <div class="row">
+                    <my-hero v-for="h in heroList" :h="h" :key="h.id"></my-hero>
+            </div>
+        </div>
+        
+        
+        <script type="text/x-template" id="heroList">
+            <div class="col s6 m4 l3">
+                <div class="noBox" v-if="isDone">
+                <div class="chip">
+                    <img :src="imgUrl" border="1" :alt="h.name" />
+                    {{ h.name }}
+                </div>
+                <div>
+                    <img src="assets/img/img-chests.png" v-on:click="loadBox" :class="hasBoxIconStyle">
+                    <img src="assets/img/star.png" v-on:click="loadStar" :class="hasStarIconStyle">
+                </dvi>
+                <div>
+                    <span class="new  badge" data-badge-caption="">{{ h.tags[0] }}</span>
+                    <span class="new badge" data-badge-caption="">{{ h.tags[1] }}</span>
+                </div>
+                </div>
+            </div>
+        </script>
+        
+        <script>var lolVersion = '6.24.1';</script>
+        <script src="bower_components/vue/dist/vue.js" type="text/javascript"></script>
+        <script src="bower_components/lodash/dist/lodash.min.js" type="text/javascript"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="bower_components/pouchdb/dist/pouchdb.min.js" type="text/javascript"></script>
+        <script src="assets/components.js" type="text/javascript"></script>
+        <script src="assets/js.js" type="text/javascript"></script>
+    </body>
+</html>
