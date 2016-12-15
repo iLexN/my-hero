@@ -56,10 +56,9 @@ var app = new Vue({
             });
         },
         setFilterTag : function(tag , event){
-            console.log(event.target.className);
+            $(".filterBar button").removeClass('red');
             if ( this.filterTags === tag){
                 this.filterTags = '';
-                event.target.className = 'btn';
             } else {
                 this.filterTags = tag;
                 event.target.className = 'btn red';

@@ -1,0 +1,33 @@
+{
+  "name": "myhero",
+  "version": "0.0.1",
+  "description": "nw.js features demonstrated in a simple project",
+  "main": "index.html",
+  "window": {
+    "min_width": 1024,
+    "min_height": 768,
+    "icon": "assets/img/img-chests.png"
+  },
+  "maintainers": [
+    {
+      "name": "Julian Motz",
+      "web": "https://github.com/julmot"
+    }
+  ],
+  "bugs": "https://github.com/julmot/nw.js-examples/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/julmot/nw.js-examples/blob/master/LICENSE"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/julmot/nw.js-examples.git",
+      "path": "src/"
+    }
+  ],
+  "dependencies": {
+  }
+}

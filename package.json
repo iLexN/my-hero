@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "nw src/",
-    "prod": "nwbuild --platforms win32,win64 --buildDir dist/ src/"
+    "prod": "nwbuild --platforms win32,win64 --buildDir dist/ public_html/"
   },
   "devDependencies": {
     "nw": "^0.18.3",
