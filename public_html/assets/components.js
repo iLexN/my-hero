@@ -1,17 +1,70 @@
 /* global lol */
+
+var store = function (name) {
+    var db = new PouchDB(name);
+
+    function dbRemove() {
+        db.destroy().then(function (response) {
+            console.log('success destroy');
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
+    function dbClear() {
+        db.viewCleanup().then(function (result) {
+            // handle result
+            console.log(result);
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
+    return {
+        'db': db,
+        'dbClear': dbClear,
+        'dbRemove': dbRemove
+    };
+};
+var ac1 = new store('iLexN');
+var ac2 = new store('iLexSo7');
+
+
 var heroList = {
     template: '#heroList',
     props: {
-        h: Object
+        h: Object,
+        f: String,
+        ac : String
     },
     data: function () {
         return {
             db: [],
-            isDone : false
+            isDone: false,
+            isShow: true,
+            useAC : Object
         };
     },
     created: function () {
+        this.isDone = false;
+        this.getAC();
         this.getDB();
+    },
+    watch: {
+        f: function (val, oldVal) {
+            this.isShow = false;
+            if (val === '') {
+                this.isShow = true;
+            } else if (val === 'box' && this.db.box === true) {
+                this.isShow = true;
+            } else if (val === 'star' && this.db.star === true) {
+                this.isShow = true;
+            } else if (val === 'nobox' && this.db.box === false) {
+                this.isShow = true;
+            }
+        },
+        ac : function(){
+            this.getAC();
+            this.getDB();
+        }
     },
     computed: {
         imgUrl: function () {
@@ -27,7 +80,7 @@ var heroList = {
                 return 'blur';
             }
         },
-        hasStarIconStyle: function(){
+        hasStarIconStyle: function () {
             if (this.db.star) {
                 return '';
             } else {
@@ -68,7 +121,7 @@ var heroList = {
         },
         getDB: function () {
             var self = this;
-            db.get(this.h.id).then(function (doc) {
+            this.useAC.db.get(this.h.id).then(function (doc) {
                 self.db = doc;
                 self.isDone = true;
                 //console.log('done');
@@ -76,43 +129,51 @@ var heroList = {
                 self.createDB();
             });
         },
-        updatDB : function(){
+        updatDB: function () {
             var self = this;
-            db.put(this.db, function callback(err, result) {
+            this.useAC.db.put(this.db, function callback(err, result) {
                 self.db._rev = result.rev;
             });
         },
-        createDB : function(){
+        createDB: function () {
             var info = {
                 _id: this.h.id,
                 hero: this.h.id,
-                box : false,
-                star : false
+                box: false,
+                star: false
             };
             var self = this;
-            db.put(info, function callback(err, result) {
+            this.useAC.db.put(info, function callback(err, result) {
                 //console.log(result);
                 self.getDB();
             });
+        },
+        getAC : function(){
+            if ( this.ac === 'iLexN'){
+                this.useAC = ac1;
+            } else {
+                this.useAC = ac2;
+            }
+            this.use
         }
     }
 };
 
-var db = new PouchDB('MyHero');
-var remoteCouch = false;
-
-function dbRemove() {
-    db.destroy().then(function (response) {
-        console.log('success destroy');
-    }).catch(function (err) {
-        console.log(err);
-    });
-}
-function dbClear() {
-    db.viewCleanup().then(function (result) {
-        // handle result
-        console.log(result);
-    }).catch(function (err) {
-        console.log(err);
-    });
-}
+//var db = new PouchDB('MyHero');
+//var remoteCouch = false;
+//
+//function dbRemove() {
+//    db.destroy().then(function (response) {
+//        console.log('success destroy');
+//    }).catch(function (err) {
+//        console.log(err);
+//    });
+//}
+//function dbClear() {
+//    db.viewCleanup().then(function (result) {
+//        // handle result
+//        console.log(result);
+//    }).catch(function (err) {
+//        console.log(err);
+//    });
+//}
