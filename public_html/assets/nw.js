@@ -1,4 +1,4 @@
-/* global nw, ac1*/
+/* global nw, ac1, app, ac2*/
 var win = nw.Window.get();
 
 var menu = new nw.Menu({type: 'menubar'});
@@ -26,12 +26,18 @@ submenu2.append(new nw.MenuItem({
     label: 'iLexN'  ,
     click : function(){
         app.setFilterAC('iLexN');
+        app.filterTags = '';
+        app.filterTags2 = '';
+        $("button").removeClass('red');
     }
 }));
 submenu2.append(new nw.MenuItem({ 
     label: 'iLexSo7'  ,
     click : function(){
         app.setFilterAC('iLexSo7');
+        app.filterTags = '';
+        app.filterTags2 = '';
+        $("button").removeClass('red');
     }
 }));
 

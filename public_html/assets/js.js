@@ -29,7 +29,8 @@ var app = new Vue({
         hero: [],
         filterTags: '',
         filterTags2: '',
-        ac: 'iLexN'
+        ac: 'iLexN',
+        search : ''
     },
     created: function () {
         this.getAllHero();
@@ -41,12 +42,22 @@ var app = new Vue({
         heroList: function () {
             var newList = this.hero;
             var filterValue = this.filterTags;
-            if (filterValue === '') {
-                return newList;
-            }
+            
             newList = _.filter(this.hero, function (o) {
+                if (filterValue === '') {
+                    return true;
+                }
                 return o.tags[0] === filterValue || o.tags[1] === filterValue;
             });
+            
+            var search = this.search;
+            newList = _.filter(newList, function (o) {
+                if (search === '') {
+                    return true;
+                }
+                return o.id.toLowerCase().search(search.toLowerCase()) > -1;
+            });
+            
             return newList;
         }
     },

@@ -4,17 +4,15 @@
         <title>MyHero</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="bower_components/materialize/dist/css/materialize.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css.css" rel="stylesheet" type="text/css"/>
     </head>
     <body >
-        <div id="app">
+        <div id="app" style="margin:1rem">
             <div class="row findAC">
-                <!--
-                <button class="btn" v-on:click="setFilterAC('iLexN')">AC1</button>
-                <button class="btn" v-on:click="setFilterAC('iLexSo7')">AC2</button>
-                -->
-                {{ ac }}
+                <div style="float: right;position: relative"><i class="material-icons" style="position: absolute;top:1.2rem">search</i><input type="search" v-model="search" style="padding-left:1.5rem"></div>
+                <div style="font-size:2rem;color:green;font-weight: 800">{{ ac }}</div>
             </div>
             <div class="row filterBar">
                 <button class="btn" v-on:click="setFilterTag('Tank', $event)">Tank</button>
@@ -27,7 +25,8 @@
             <div class="row filterTag">
                 <button class="btn " v-on:click="setFilterTag2('box', $event)" style="height:50px"><img src="assets/img/img-chests.png"></button>
                 <button class="btn " v-on:click="setFilterTag2('nobox', $event)" style="height:50px"><img src="assets/img/img-chests.png" class="blur"></button>
-                <button class="btn " v-on:click="setFilterTag2('star', $event)" style="height:50px"><img src="assets/img/star.png" style="display:block"></button>
+                <button class="btn " v-on:click="setFilterTag2('star', $event)" style="height:50px"><img src="assets/img/star.png"></button>
+                <button class="btn " v-on:click="setFilterTag2('haveStarNoBox', $event)" style="height:50px"><img src="assets/img/star.png"><img src="assets/img/img-chests.png" class="blur"></button>
             </div>
             
             <div class="row">

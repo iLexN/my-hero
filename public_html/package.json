@@ -4,7 +4,7 @@
   "description": "nw.js features demonstrated in a simple project",
   "main": "index.html",
   "window": {
-    "min_width": 1024,
+    "min_width": 1050,
     "min_height": 768,
     "icon": "assets/img/img-chests.png"
   },

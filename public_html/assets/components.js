@@ -59,6 +59,8 @@ var heroList = {
                 this.isShow = true;
             } else if (val === 'nobox' && this.db.box === false) {
                 this.isShow = true;
+            } else if (val === 'haveStarNoBox' && this.db.box === false && this.db.star === true) {
+                this.isShow = true;
             }
         },
         ac : function(){
