@@ -11,8 +11,7 @@
     "jquery": "^3.1.1",
     "materialize": "^0.97.8",
     "lodash": "^4.17.2",
-    "pouchdb": "^6.1.0",
-    "pouchdb-replication-stream": "^1.2.9"
+    "pouchdb": "^6.1.0"
   },
   "devDependencies": {}
 }

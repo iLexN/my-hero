@@ -73,12 +73,6 @@ nw.Window.get().menu = menu;
 var fs = require('fs');
 function exportDB() {
     var $p = $("#dbFilepathOut");
-    /*
-     ac1.db.dump(ws).then(function (res) {
-     console.log(res);
-     //$p.val('');
-     });
-     */
     ac1.db.allDocs({
         include_docs: true
     }).then(function (result) {
@@ -96,14 +90,6 @@ function exportDB() {
 
 function inportDB() {
     var $p = $("#dbFilepathIn");
-    /*
-     var rs = fs.createReadStream($p.val());
-     console.log($p.val());
-     console.log('in db');
-     ac1.db.load(rs).then(function (res) {
-     console.log(res);
-     });
-     */
     fs.readFile($p.val(), 'utf8', (err, data) => {
         if (err)
             throw err;
