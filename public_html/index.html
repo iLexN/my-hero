@@ -11,7 +11,7 @@
     <body >
         <div id="app" style="margin:1rem">
             <div class="row findAC">
-                <div style="float: right;position: relative"><i class="material-icons" style="position: absolute;top:1.2rem">search</i><input type="search" v-model="search" style="padding-left:1.5rem"></div>
+                <div style="float: right;position: relative;margin-right: 1.5rem;"><i class="material-icons" style="position: absolute;top:1.2rem">search</i><input type="search" v-model="search" style="padding-left:1.5rem"></div>
                 <div style="font-size:2rem;color:green;font-weight: 800">{{ ac }}</div>
             </div>
             <div class="row filterBar">
@@ -33,6 +33,10 @@
                     <my-hero v-for="h in heroList" :h="h" :f="filterTags2" :ac="ac" :key="h.id"></my-hero>
             </div>
         </div>
+        
+        
+        <input type="file" nwsaveas="filename.txt" id="dbFilepathOut" style="display:none;">
+        <input type="file"  id="dbFilepathIn" style="display:none;">
         
         
         <script type="text/x-template" id="heroList">
@@ -59,6 +63,7 @@
         <script src="bower_components/lodash/dist/lodash.min.js" type="text/javascript"></script>
         <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
         <script src="bower_components/pouchdb/dist/pouchdb.min.js" type="text/javascript"></script>
+        <script src="bower_components/pouchdb-replication-stream/dist/pouchdb.replication-stream.min.js" type="text/javascript"></script>
         <script src="assets/components.js" type="text/javascript"></script>
         <script src="assets/nw.js" type="text/javascript"></script>
         <script src="assets/js.js" type="text/javascript"></script>
