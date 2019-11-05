@@ -19,7 +19,7 @@
     "prod": "nwbuild --platforms win32,win64 --buildDir dist/ public_html/"
   },
   "devDependencies": {
-    "nw": "^0.18.3",
+    "nw": "^0.42.2",
     "nw-builder": "^3.1.2"
   },
   "window": {
